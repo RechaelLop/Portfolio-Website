@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life and Experiences</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/602903909e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Link back to the main page -->
+    <a href="index.html" class="about-link">Home</a>
+
+    <!-- Sign In tag -->
+    <div class="sign-in-container">
+        <a href="#" class="sign-in-link" onclick="showSignInPopup(event)">Sign In</a>
+
+    <!-- Small image next to the Sign In tag "Profile" -->
+    <img src="Images/rechael_processed.jpeg" alt="User Icon" class="profile" onclick="showPopup()">
+    </div>
+
+    <!-- Sign In Pop-up -->
+    <div id="sign-in-popup" class="sign-in-popup-box">
+        <div class="sign-in-popup-content">
+            <div class="sign-in-social-icons">
+                <a href="https://www.linkedin.com/in/rechael-lopes-6244921b0/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="icon-label">Connect</span>
+                </a>
+                <a href="https://github.com/RechaelLop" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="icon-label">Code :3</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The popup container -->
+    <div id="popup-box" class="popup-box">
+        <div class="popup-content">
+            <!-- Close icon -->
+            <span class="close-icon" onclick="hidePopup()">&#x2716;</span>
+            <!-- Enlarged image -->
+            <img src="Images/rechael_processed.jpeg" alt="User Icon" class="popup-image">
+            <!-- Text below the image -->
+            <p class="popup-title">Hi, I'm Rechael</p>
+            <p class="popup-subtitle">
+                Welcome to my personal site. 
+                <span class="pink-heart">&#10084;</span>
+            </p>
+            <div class="popup-text-container">
+                <p class="popup-section-title">HOW TO USE</p>
+                <p class="popup-description">
+                    Explore my projects and journey using <i class="highlight">Search</i>.<br>
+                    Connect with me using <i class="highlight">Sign In</i>.<br>
+                    Get to know more about me using <i class="highlight">About</i>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="volunteering-container">
+        <div id="volunteering-content">
+            <div class="volunteering-section active">
+                <h2>Community Service</h2>
+                <p>As a part of my bachelor's program, I was working as an Administrative Volunteer for elderly care home A1 Snehanjali. 
+                    I have performed various administrative tasks such as handling office work, answering phone calls, 
+                    making appointments, maintaining a calendar, and keeping records. I have worked with Excel and other tools, 
+                    digital entries, and generating reports. One of the most exciting aspects was engaging in recreational activities 
+                    with the residents, including art sessions, music learning, outdoor sports, organizing public events, outings, etc. 
+                </p>
+            </div>
+            <div class="volunteering-section">
+                <h2>Health Checkup Camp</h2>
+                <p>While working at the elderly care center, we organized various camps including a Health Checkup Camp 
+                    for remote villagers. We have called upon a specialized team of doctors. The camp was set for an entire day
+                    and had arrangements made for the public. We had even done a promotional event to ensure the majority 
+                    of people took advantage of such camps. Apart from this, we had also arranged Blood Donation and Organ Awarness Camps. 
+                </p>
+            </div>
+            <div class="volunteering-section">
+                <h2>Leadership</h2>
+                <p>Class Representative of the batch of 2021. I led many groups throughout my student years 
+                    including but not limited to technical project groups, school Head Girl, and school band leader. 
+                    Communicated and coordinated between the faculty and students, provided regular updates, 
+                    and facilitated various activities and workshops. Won various awards and certifications as an individual 
+                    and as a group. 
+                </p>
+            </div>
+            <div class="volunteering-section">
+                <h2>Awards & Achievements</h2>
+                <p>Throughout my academic journey, I have achieved various awards. I have been awarded numerous times as
+                    a merit student and have received scholarships for having the highest scores in various subjects. I have also 
+                    cleared many Olympiads and other competitive exams with exceptional grades. During my university years, 
+                    my team had won the Best Team of the Year award (2019).
+                </p>
+            </div>
+        </div>
+    
+        <button id="prev-btn" class="nav-btn left"><i class="fa-solid fa-arrow-left"></i></button>
+        <button id="next-btn" class="nav-btn right"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>    
+
+    <footer class="footer">
+        © 2025 Rechael Lopes. All rights reserved.
+    </footer>
+
+    <script>
+        //popup for the profile image
+            // Show the popup
+            function showPopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'block'; // Make the popup visible
+            }
+
+            // Hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'none'; // Hide the popup
+            }
+
+            // Close the popup when clicking outside of it
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("popup-box");
+                const profileImage = document.querySelector(".profile");
+                const isClickInsidePopup = popup.contains(event.target);
+                const isClickOnProfileImage = profileImage.contains(event.target);
+
+                // Close popup if clicked outside and not on the profile image
+                if (!isClickInsidePopup && !isClickOnProfileImage) {
+                    popup.style.display = "none";
+                }
+            });
+
+            //Next/previous arrows
+
+            const sections = document.querySelectorAll(".volunteering-section");
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+
+            let currentIndex = 0;
+
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.classList.toggle("active", i === index);
+                });
+
+                // Hide prev button on the first section
+                prevBtn.style.display = index === 0 ? "none" : "block";
+
+                // Hide next button on the last section
+                nextBtn.style.display = index === sections.length - 1 ? "none" : "block";
+            }
+
+            // Show the first section initially
+            showSection(currentIndex);
+
+            nextBtn.addEventListener("click", () => {
+                if (currentIndex < sections.length - 1) {
+                    currentIndex++;
+                    showSection(currentIndex);
+                }
+            });
+
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    showSection(currentIndex);
+                }
+            });
+
+            //Popup for the Sign In
+            // Show the sign-in pop-up
+            function showSignInPopup() {
+                document.getElementById('sign-in-popup').style.display = 'block';
+            }
+
+            // Close when clicking outside the pop-up
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("sign-in-popup");
+                const signInButton = document.querySelector(".sign-in-link");
+                if (!popup.contains(event.target) && event.target !== signInButton) {
+                    popup.style.display = "none";
+                }
+            });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Me!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/602903909e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Link back to the main page -->
+    <a href="index.html" class="about-link">Home</a>
+
+    <!-- Sign In tag -->
+    <div class="sign-in-container">
+        <a href="#" class="sign-in-link" onclick="showSignInPopup(event)">Sign In</a>
+
+    <!-- Small image next to the Sign In tag "Profile" -->
+    <img src="Images/rechael_processed.jpeg" alt="User Icon" class="profile" onclick="showPopup()">
+    </div>
+
+    <!-- Sign In Pop-up -->
+    <div id="sign-in-popup" class="sign-in-popup-box">
+        <div class="sign-in-popup-content">
+            <div class="sign-in-social-icons">
+                <a href="https://www.linkedin.com/in/rechael-lopes-6244921b0/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="icon-label">Connect</span>
+                </a>
+                <a href="https://github.com/RechaelLop" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="icon-label">Code :3</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The popup container -->
+    <div id="popup-box" class="popup-box">
+        <div class="popup-content">
+            <!-- Close icon -->
+            <span class="close-icon" onclick="hidePopup()">&#x2716;</span>
+            <!-- Enlarged image -->
+            <img src="Images/rechael_processed.jpeg" alt="User Icon" class="popup-image">
+            <!-- Text below the image -->
+            <p class="popup-title">Hi, I'm Rechael</p>
+            <p class="popup-subtitle">
+                Welcome to my personal site. 
+                <span class="pink-heart">&#10084;</span>
+            </p>
+            <div class="popup-text-container">
+                <p class="popup-section-title">HOW TO USE</p>
+                <p class="popup-description">
+                    Explore my projects and journey using <i class="highlight">Search</i>.<br>
+                    Connect with me using <i class="highlight">Sign In</i>.<br>
+                    Get to know more about me using <i class="highlight">About</i>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hire-container">
+        <h3>
+            <img src="images/logo.png" alt="AI Icon" class="ai-image">
+            AI Overview
+        </h3>
+        <p class="hire-text">
+            Ever since I started my journey in cloud computing and software development, my goal has been to leverage 
+            technology to create meaningful impact. With a strong foundation in <b>cloud architecture, automation, 
+            and data analytics</b>, I have continuously sought opportunities to enhance efficiency, streamline workflows, 
+            and drive innovation.
+        </p>
+        <p class="hire-text">
+            My experience spans across <b>cloud migration, machine learning, and infrastructure automation</b>, 
+            where I have successfully implemented solutions that <b>reduce operational costs and improve system reliability</b>. 
+            At CloudNav Solutions, I played a key role in <b>designing and deploying cloud-native monitoring applications on AWS</b>, 
+            utilizing <b>Flask, Docker, and Kubernetes</b> to enhance observability. My expertise in <b>Azure and M365 migrations</b> 
+            has also enabled businesses to transition seamlessly to the cloud, improving scalability and security.
+        </p>
+        <p class="hire-text">
+            Beyond technical expertise, I thrive in <b>problem-solving and collaborative environments</b>. 
+            My background in <b>customer service and technical helpdesk</b> has equipped me with strong communication skills, 
+            allowing me to effectively bridge the gap between <b>technical solutions and business needs</b>. Whether it’s 
+            <b>resolving complex customer issues, implementing AI-powered automation, or designing secure cloud infrastructures</b>, 
+            I take pride in <b>delivering results that exceed expectations</b>.
+        </p>
+        <p class="hire-text">
+            As I continue to grow in my career, I am eager to <b>embrace global opportunities and work on cutting-edge technologies</b> 
+            that improve lives and optimize business processes. I am driven by a passion for <b>continuous learning, innovation, 
+            and the pursuit of excellence</b>—qualities that make me a valuable addition to any team.
+        </p>
+        <p class="hire-text last-line">
+            Let’s build the future, one cloud solution at a time. 🚀
+        </p>
+    </div>
+
+    <footer class="footer">
+        © 2025 Rechael Lopes. All rights reserved.
+    </footer>
+
+    <script>
+        //popup for the profile image
+            // Show the popup
+            function showPopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'block'; // Make the popup visible
+            }
+
+            // Hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'none'; // Hide the popup
+            }
+
+            // Close the popup when clicking outside of it
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("popup-box");
+                const profileImage = document.querySelector(".profile");
+                const isClickInsidePopup = popup.contains(event.target);
+                const isClickOnProfileImage = profileImage.contains(event.target);
+
+                // Close popup if clicked outside and not on the profile image
+                if (!isClickInsidePopup && !isClickOnProfileImage) {
+                    popup.style.display = "none";
+                }
+            });
+
+            //Next/previous arrows
+
+            const sections = document.querySelectorAll(".volunteering-section");
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+
+            let currentIndex = 0;
+
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.classList.toggle("active", i === index);
+                });
+
+                // Hide prev button on the first section
+                prevBtn.style.display = index === 0 ? "none" : "block";
+
+                // Hide next button on the last section
+                nextBtn.style.display = index === sections.length - 1 ? "none" : "block";
+            }
+
+            // Show the first section initially
+            showSection(currentIndex);
+
+            nextBtn.addEventListener("click", () => {
+                if (currentIndex < sections.length - 1) {
+                    currentIndex++;
+                    showSection(currentIndex);
+                }
+            });
+
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    showSection(currentIndex);
+                }
+            });
+
+            //Popup for the Sign In
+            // Show the sign-in pop-up
+            function showSignInPopup() {
+                document.getElementById('sign-in-popup').style.display = 'block';
+            }
+
+            // Close when clicking outside the pop-up
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("sign-in-popup");
+                const signInButton = document.querySelector(".sign-in-link");
+                if (!popup.contains(event.target) && event.target !== signInButton) {
+                    popup.style.display = "none";
+                }
+            });
+
+    </script>
+
+</body>
+</html>

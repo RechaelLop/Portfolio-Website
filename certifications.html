@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life and Experiences</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/602903909e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Link back to the main page -->
+    <a href="index.html" class="about-link">Home</a>
+
+    <!-- Sign In tag -->
+    <div class="sign-in-container">
+        <a href="#" class="sign-in-link" onclick="showSignInPopup(event)">Sign In</a>
+
+    <!-- Small image next to the Sign In tag "Profile" -->
+    <img src="Images/rechael_processed.jpeg" alt="User Icon" class="profile" onclick="showPopup()">
+    </div>
+
+    <!-- Sign In Pop-up -->
+    <div id="sign-in-popup" class="sign-in-popup-box">
+        <div class="sign-in-popup-content">
+            <div class="sign-in-social-icons">
+                <a href="https://www.linkedin.com/in/rechael-lopes-6244921b0/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="icon-label">Connect</span>
+                </a>
+                <a href="https://github.com/RechaelLop" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="icon-label">Code :3</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The popup container -->
+    <div id="popup-box" class="popup-box">
+        <div class="popup-content">
+            <!-- Close icon -->
+            <span class="close-icon" onclick="hidePopup()">&#x2716;</span>
+            <!-- Enlarged image -->
+            <img src="Images/rechael_processed.jpeg" alt="User Icon" class="popup-image">
+            <!-- Text below the image -->
+            <p class="popup-title">Hi, I'm Rechael</p>
+            <p class="popup-subtitle">
+                Welcome to my personal site. 
+                <span class="pink-heart">&#10084;</span>
+            </p>
+            <div class="popup-text-container">
+                <p class="popup-section-title">HOW TO USE</p>
+                <p class="popup-description">
+                    Explore my projects and journey using <i class="highlight">Search</i>.<br>
+                    Connect with me using <i class="highlight">Sign In</i>.<br>
+                    Get to know more about me using <i class="highlight">About</i>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Container -->
+    <div class="certifications-container">
+        <!-- Left Side: Certifications List -->
+        <div class="certifications-list">
+            <ul>
+                <li>
+                    <div class="certification-header">
+                        <i class="fa-brands fa-microsoft certification-icon"></i>
+                        <span class="certification-name">Microsoft Azure Fundamentals (AZ-900)</span>
+                    </div>
+                    <div class="certification-meta">
+                        <span class="certification-date">Present</span>
+                        <a href="certificates/Microsoft Azure Fundamentals (AZ-900).pdf" target="_blank" class="certification-link">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <p class="certification-description">
+                        Validates foundational knowledge of cloud concepts, Azure services, security, 
+                        pricing, and compliance.
+                    </p>
+                </li>
+                <li>
+                    <div class="certification-header">
+                        <i class="fa-brands fa-aws certification-icon"></i>
+                        <span class="certification-name">AWS Cloud Practitioner Essentials</span>
+                    </div>
+                    <div class="certification-meta">
+                        <span class="certification-date">Feb 2024</span>
+                        <a href="certificates/AWS Cloud Practioner Essential_AWS Course Completion Certificate.pdf" target="_blank" class="certification-link">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <p class="certification-description">
+                        Covers essential AWS services, cloud concepts, billing, security, and compliance fundamentals.
+                    </p>
+                </li>
+                <li>
+                    <div class="certification-header">
+                        <i class="fa-brands fa-aws certification-icon"></i>
+                        <span class="certification-name">AWS Technical Essentials</span>
+                    </div>
+                    <div class="certification-meta">
+                        <span class="certification-date">Aug 2024</span>
+                        <a href="certificates/AWS Technical Essentials_AWS Course Completion Certificate.pdf" target="_blank" class="certification-link">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <p class="certification-description">
+                        Provides foundational knowledge of core AWS services, tools, and best practices for building cloud-based solutions.
+                    </p>
+                </li>
+                <li>
+                    <div class="certification-header">
+                        <i class="fa-brands fa-aws certification-icon"></i>
+                        <span class="certification-name">Machine Learning Essentials</span>
+                    </div>
+                    <div class="certification-meta">
+                        <span class="certification-date">June 2024</span>
+                        <a href="certificates/Machine Learning Essentials for Business and Technical Decission Makers_AWS Course Completion Certificate.pdf" target="_blank" class="certification-link">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <p class="certification-description">
+                        Introduces key machine learning concepts and AWS services like SageMaker to build and deploy machine learning models in the cloud.
+                    </p>
+                </li>
+                <li>
+                    <div class="certification-header">
+                        <i class="fa-brands fa-aws certification-icon"></i>
+                        <span class="certification-name">Public Sector AI/ML</span>
+                    </div>
+                    <div class="certification-meta">
+                        <span class="certification-date">Aug 2024</span>
+                        <a href="certificates/Public Sector AIML Learning Plan_AWS Learning Plan Completion Certificate.pdf" target="_blank" class="certification-link">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <p class="certification-description">
+                        Focuses on leveraging AI and machine learning solutions within the public sector using AWS technologies to drive innovation and efficiency.
+                    </p>
+                </li>
+                <li>
+                    <div class="certification-header">
+                        <i class="fa-brands fa-google certification-icon"></i>
+                        <span class="certification-name">Google Data Analytics</span>
+                    </div>
+                    <div class="certification-meta">
+                        <span class="certification-date">June 2021</span>
+                        <a href="certificates/Foundation-Data, Data, Everywhere.pdf" target="_blank" class="certification-link">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+                    </div>
+                    <p class="certification-description">
+                        Equips with the skills to analyze and interpret data using Google tools such as BigQuery and Data Studio for effective decision-making.
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right Side: Technologies Box -->
+        <div class="technologies-box">
+            <h2>Technologies I Have Worked With</h2>
+            <div class="tech-categories">
+                <div class="category">
+                    <h3>LANGUAGES</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">C/C++</div>
+                        <div class="tech-item">Java</div>
+                        <div class="tech-item">Android</div>
+                        <div class="tech-item">R</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>DATABASES</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">MS SQL Server</div>
+                        <div class="tech-item">MySQL</div>
+                        <div class="tech-item">PostgreSQL</div>
+                        <div class="tech-item">SQLite</div>
+                        <div class="tech-item">MongoDB</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>TOOLS</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">Visual Studio</div>
+                        <div class="tech-item">Eclipse</div>
+                        <div class="tech-item">Jupyter Notebook</div>
+                        <div class="tech-item">Tableau</div>
+                        <div class="tech-item">Power BI</div>
+                        <div class="tech-item">Excel</div>
+                        <div class="tech-item">VS Code</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>OS</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">Windows</div>
+                        <div class="tech-item">Linux</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>OTHERS</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">Power Apps</div>
+                        <div class="tech-item">M365</div>
+                        <div class="tech-item">PowerShell</div>
+                        <div class="tech-item">HTML/JS/CSS</div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        
+    </div>
+
+    <footer class="footer">
+        © 2025 Rechael Lopes. All rights reserved.
+    </footer>
+
+    <script>
+        //popup for the profile image
+            // Show the popup
+            function showPopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'block'; // Make the popup visible
+            }
+
+            // Hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'none'; // Hide the popup
+            }
+
+            // Close the popup when clicking outside of it
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("popup-box");
+                const profileImage = document.querySelector(".profile");
+                const isClickInsidePopup = popup.contains(event.target);
+                const isClickOnProfileImage = profileImage.contains(event.target);
+
+                // Close popup if clicked outside and not on the profile image
+                if (!isClickInsidePopup && !isClickOnProfileImage) {
+                    popup.style.display = "none";
+                }
+            });
+
+            //Popup for the Sign In
+            // Show the sign-in pop-up
+            function showSignInPopup() {
+                document.getElementById('sign-in-popup').style.display = 'block';
+            }
+
+            // Close when clicking outside the pop-up
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("sign-in-popup");
+                const signInButton = document.querySelector(".sign-in-link");
+                if (!popup.contains(event.target) && event.target !== signInButton) {
+                    popup.style.display = "none";
+                }
+            });
+
+    </script>
+
+</body>
+</html>

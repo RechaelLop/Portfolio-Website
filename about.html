@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/602903909e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Link back to the main page -->
+    <a href="index.html" class="about-link">Home</a>
+
+    <!-- Sign In tag -->
+    <div class="sign-in-container">
+        <a href="#" class="sign-in-link" onclick="showSignInPopup(event)">Sign In</a>
+
+    <!-- Small image next to the Sign In tag "Profile" -->
+    <img src="Images/rechael_processed.jpeg" alt="User Icon" class="profile" onclick="showPopup()">
+    </div>
+
+    <!-- Sign In Pop-up -->
+    <div id="sign-in-popup" class="sign-in-popup-box">
+        <div class="sign-in-popup-content">
+            <div class="sign-in-social-icons">
+                <a href="https://www.linkedin.com/in/rechael-lopes-6244921b0/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="icon-label">Connect</span>
+                </a>
+                <a href="https://github.com/RechaelLop" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="icon-label">Code :3</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The popup container -->
+    <div id="popup-box" class="popup-box">
+        <div class="popup-content">
+            <!-- Close icon -->
+            <span class="close-icon" onclick="hidePopup()">&#x2716;</span>
+            <!-- Enlarged image -->
+            <img src="Images/rechael_processed.jpeg" alt="User Icon" class="popup-image">
+            <!-- Text below the image -->
+            <p class="popup-title">Hi, I'm Rechael</p>
+            <p class="popup-subtitle">
+                Welcome to my personal site. 
+                <span class="pink-heart">&#10084;</span>
+            </p>
+            <div class="popup-text-container">
+                <p class="popup-section-title">HOW TO USE</p>
+                <p class="popup-description">
+                    Explore my projects and journey using <i class="highlight">Search</i>.<br>
+                    Connect with me using <i class="highlight">Sign In</i>.<br>
+                    Get to know more about me using <i class="highlight">About</i>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="Images/Rechael_pic.jpg" loading="lazy" alt="About Me Image">
+                    <img src="Images/emoji_processed.png" loading="lazy" alt="Second Image" class="second-img">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Motivated Cloud Architect with foundational knowledge in cloud technologies gained through rigorous coursework and hands-on projects. Certified in cloud platforms and skilled in cloud architecture, virtual infrastructure, databases, and data analytics. Strong analytical and problem-solving abilities, with a focus on delivering quality solutions. <br>Eager to apply academic learnings and certifications to real-world challenges, demonstrating excellent communication and organizational skills.</p>    <!--add your about info-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2025 Rechael Lopes. All rights reserved.
+    </footer>
+
+    <script>
+        //popup for the profile image
+            // Show the popup
+            function showPopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'block'; // Make the popup visible
+            }
+
+            // Hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'none'; // Hide the popup
+            }
+
+            // Close the popup when clicking outside of it
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("popup-box");
+                const profileImage = document.querySelector(".profile");
+                const isClickInsidePopup = popup.contains(event.target);
+                const isClickOnProfileImage = profileImage.contains(event.target);
+
+                // Close popup if clicked outside and not on the profile image
+                if (!isClickInsidePopup && !isClickOnProfileImage) {
+                    popup.style.display = "none";
+                }
+            });
+
+            //Popup for the Sign In
+            // Show the sign-in pop-up
+            function showSignInPopup() {
+                document.getElementById('sign-in-popup').style.display = 'block';
+            }
+
+            // Close when clicking outside the pop-up
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("sign-in-popup");
+                const signInButton = document.querySelector(".sign-in-link");
+                if (!popup.contains(event.target) && event.target !== signInButton) {
+                    popup.style.display = "none";
+                }
+            });
+
+    </script>
+
+</body>
+</html>

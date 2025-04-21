@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/602903909e.js" crossorigin="anonymous"></script>
+    <!-- Import Roboto font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+        <!-- "About" link at top left -->
+        <a href="about.html" class="about-link">About</a>
+
+        <!-- Sign In tag -->
+        <div class="sign-in-container">
+        <a href="#" class="sign-in-link" onclick="showSignInPopup(event)">Sign In</a>
+
+        <!-- Small image next to the Sign In tag "Profile" -->
+        <img src="Images/rechael_processed.jpeg" alt="User Icon" class="profile" onclick="showPopup()">
+        </div>
+
+        <!-- Sign In Pop-up -->
+        <div id="sign-in-popup" class="sign-in-popup-box">
+            <div class="sign-in-popup-content">
+                <div class="sign-in-social-icons">
+                    <a href="https://www.linkedin.com/in/rechael-lopes-6244921b0/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span class="icon-label">Connect</span>
+                    </a>
+                    <a href="https://github.com/RechaelLop" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        <span class="icon-label">Code :3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Profile popup container -->
+        <div id="popup-box" class="popup-box">
+            <div class="popup-content">
+                <!-- Close icon -->
+                <span class="close-icon" onclick="hidePopup()">&#x2716;</span>
+                <!-- Enlarged image -->
+                <img src="Images/rechael_processed.jpeg" alt="User Icon" class="popup-image">
+                <!-- Text below the image -->
+                <p class="popup-title">Hi, I'm Rechael</p>
+                <p class="popup-subtitle">
+                    Welcome to my personal site. 
+                    <span class="pink-heart">&#10084;</span>
+                </p>
+                <div class="popup-text-container">
+                    <p class="popup-section-title">HOW TO USE</p>
+                    <p class="popup-description">
+                        Explore my projects and journey using <i class="highlight">Search</i>.<br>
+                        Connect with me using <i class="highlight">Sign In</i>.<br>
+                        Get to know more about me using <i class="highlight">About</i>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="header" id="typing-effect"></h1>
+
+        <!-- Wrapper for search bar container -->
+        <div class="search-wrapper">
+            <div class="search-wrapper-content">
+                <!-- Image wrapper for left and right images -->
+                <div class="image-wrapper">
+                    <!-- Left Image -->
+                    <div class="image-item">
+                        <img src="Images/logo.png" alt="Logo Icon" class="search-icon search-icon-left">
+                        <div class="hover-text">My personal AI</div>
+                    </div>
+                </div>
+
+                <!-- Search bar container -->
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-bar" onclick="showSearchPopup()" >
+                </div>
+
+                <!-- Search Popup Box -->
+                <div id="search-popup-box" class="search-popup-box">
+                    <div class="search-popup-header">
+                        <span class="search-close-icon" onclick="hideSearchPopup()">&#8592;</span>
+                        <h2 class="search-popup-heading">Search</h2>
+                    </div>
+                    <hr class="search-popup-divider"/>
+                    <div class="search-popup-content">
+                        <ul>
+                            <li><a href="projects.html"><i class="fa-solid fa-arrow-trend-up"></i>Rechael's projects</a></li>
+                            <li><a href="life.html"><i class="fa-solid fa-arrow-trend-up"></i>Life and experiences</a></li>
+                            <li><a href="contact.html"><i class="fa-solid fa-arrow-trend-up"></i>Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="image-wrapper">
+                    <!-- Right Image -->
+                    <div class="image-item">
+                        <img src="Images/voice.png" alt="Voice Search Icon" class="search-icon search-icon-right">
+                        <div class="hover-text">This is just for decoration!</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            © 2025 Rechael Lopes. All rights reserved.
+        </footer>
+
+        <!-- Script for Greeetings and Typing Effect-->
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const greetings = {
+                    morning: "Good Morning !",
+                    afternoon: "Good Afternoon !",
+                    evening: "Good Evening !",
+                };
+                const mainText = "What can I help with?";
+                const typingElement = document.getElementById("typing-effect");
+        
+                // Determine the time-based greeting
+                const hours = new Date().getHours();
+                let greeting = greetings.morning;
+                if (hours >= 12 && hours < 16) {
+                    greeting = greetings.afternoon;
+                } else if (hours >= 16) {
+                    greeting = greetings.evening;
+                }
+        
+                let index = 0;
+                let isErasing = false;
+                let isDisplayingMainText = false;
+        
+                function typeEffect() {
+                    if (!isErasing && index < greeting.length) {
+                        // Typing the greeting
+                        typingElement.textContent += greeting.charAt(index);
+                        index++;
+                        setTimeout(typeEffect, 100);
+                    } else if (!isErasing && index === greeting.length) {
+                        // Pause before erasing the greeting
+                        setTimeout(() => {
+                            isErasing = true;
+                            typeEffect();
+                        }, 1000);
+                    } else if (isErasing && index > 0) {
+                        // Erasing the greeting
+                        typingElement.textContent = typingElement.textContent.slice(0, -1);
+                        index--;
+                        setTimeout(typeEffect, 50);
+                    } else if (isErasing && index === 0 && !isDisplayingMainText) {
+                        // Start typing the main text
+                        isErasing = false;
+                        isDisplayingMainText = true;
+                        index = 0;
+                        currentText = mainText;
+                        typeMainText();
+                    }
+                }
+        
+                function typeMainText() {
+                    if (index < mainText.length) {
+                        typingElement.textContent += mainText.charAt(index);
+                        index++;
+                        setTimeout(typeMainText, 100);
+                    }
+                }
+        
+                // Start the typing effect with the greeting
+                typeEffect();
+            });
+
+            // Select elements
+            const popupBox = document.getElementById("search-popup-box");
+            const searchBar = document.querySelector(".search-bar");
+
+            // Show the popup when the user clicks on the search box
+            function showSearchPopup() {
+                popupBox.classList.add("active");
+                document.addEventListener("click", handleOutsideClick);
+                document.addEventListener("keydown", handleEscapeKey);
+            }
+
+            // Hide the popup when the user clicks the close icon or outside the popup
+            function hideSearchPopup() {
+                popupBox.classList.remove("active");
+                document.removeEventListener("click", handleOutsideClick);
+                document.removeEventListener("keydown", handleEscapeKey);
+            }
+
+            // Handle clicks outside the popup to close it
+            function handleOutsideClick(event) {
+                if (!popupBox.contains(event.target) && event.target !== searchBar) {
+                    hideSearchPopup();
+                }
+            }
+
+            // Handle the "Escape" key to close the popup
+            function handleEscapeKey(event) {
+                if (event.key === "Escape") {
+                    hideSearchPopup();
+                }
+            }
+
+            // Attach event listener to the search bar for opening the popup
+            searchBar.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent triggering outside click handler
+                showSearchPopup();
+            });
+
+            // Attach event listener to the close icon
+            document.querySelector(".close-icon").addEventListener("click", hideSearchPopup);
+
+
+            //popup for the profile image
+            // Show the popup
+            function showPopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'block'; // Make the popup visible
+            }
+
+            // Hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'none'; // Hide the popup
+            }
+
+            // Close the popup when clicking outside of it
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("popup-box");
+                const profileImage = document.querySelector(".profile");
+                const isClickInsidePopup = popup.contains(event.target);
+                const isClickOnProfileImage = profileImage.contains(event.target);
+
+                // Close popup if clicked outside and not on the profile image
+                if (!isClickInsidePopup && !isClickOnProfileImage) {
+                    popup.style.display = "none";
+                }
+            });
+
+            //Popup for the Sign In
+            // Show the sign-in pop-up
+            function showSignInPopup() {
+                document.getElementById('sign-in-popup').style.display = 'block';
+            }
+
+            // Close when clicking outside the pop-up
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("sign-in-popup");
+                const signInButton = document.querySelector(".sign-in-link");
+                if (!popup.contains(event.target) && event.target !== signInButton) {
+                    popup.style.display = "none";
+                }
+            });
+
+        </script>        
+
+</body>
+</html>

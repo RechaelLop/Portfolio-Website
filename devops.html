@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS DevOps</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/602903909e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Link back to the main page -->
+    <a href="index.html" class="about-link">Home</a>
+
+    <!-- Sign In tag -->
+    <div class="sign-in-container">
+        <a href="#" class="sign-in-link" onclick="showSignInPopup(event)">Sign In</a>
+
+    <!-- Small image next to the Sign In tag "Profile" -->
+    <img src="Images/rechael_processed.jpeg" alt="User Icon" class="profile" onclick="showPopup()">
+    </div>
+
+    <!-- Sign In Pop-up -->
+    <div id="sign-in-popup" class="sign-in-popup-box">
+        <div class="sign-in-popup-content">
+            <div class="sign-in-social-icons">
+                <a href="https://www.linkedin.com/in/rechael-lopes-6244921b0/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="icon-label">Connect</span>
+                </a>
+                <a href="https://github.com/RechaelLop" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="icon-label">Code :3</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The popup container -->
+    <div id="popup-box" class="popup-box">
+        <div class="popup-content">
+            <!-- Close icon -->
+            <span class="close-icon" onclick="hidePopup()">&#x2716;</span>
+            <!-- Enlarged image -->
+            <img src="Images/rechael_processed.jpeg" alt="User Icon" class="popup-image">
+            <!-- Text below the image -->
+            <p class="popup-title">Hi, I'm Rechael</p>
+            <p class="popup-subtitle">
+                Welcome to my personal site. 
+                <span class="pink-heart">&#10084;</span>
+            </p>
+            <div class="popup-text-container">
+                <p class="popup-section-title">HOW TO USE</p>
+                <p class="popup-description">
+                    Explore my projects and journey using <i class="highlight">Search</i>.<br>
+                    Connect with me using <i class="highlight">Sign In</i>.<br>
+                    Get to know more about me using <i class="highlight">About</i>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects">
+        <div class="container">
+            <h1 class="sub-title-projects">AWS DevOps</h1>
+
+            <!-- Two-column Layout -->
+            <div class="project-content">
+
+                <!-- Left Column (Project Description) -->
+                <div class="left-column">
+
+                <p>
+                    Work under progress! 
+                </p>
+                
+                </div>
+
+                <!-- Right Column (Image + Tech Stack + GitHub Button) -->
+                <div class="right-column">
+                    <img src="Images/emoji.png" alt="Cloud Migration Project" class="project-image">
+
+                    <!--<h2>Technologies Used:</h2>
+                    <div class="tech-container">
+                        <span class="tech-box">Microsoft Azure</span>
+                        <span class="tech-box">ShaprePoint</span>
+                        <span class="tech-box">SQL Server Management Studio</span>
+                        <span class="tech-box">GitHub</span>
+                    </div>                    
+
+                    <div class="social-icons">
+                        <a href="" target="_blank"><i class="fa-solid fa-file"></i></a>
+                        <a href="" target="_blank"><i class="fa-solid fa-play"></i></a> 
+                        <a href="https://github.com/RechaelLop/M365-Migration-Project-" target="_blank"><i class="fa-brands fa-github"></i></a>  
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <a href="projects.html" class="btn">Back to Projects</a>
+                <a href="stock-prediction.html" class="btn">Next Project</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        © 2025 Rechael Lopes. All rights reserved.
+    </footer>
+
+    <script>
+        //popup for the profile image
+            // Show the popup
+            function showPopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'block'; // Make the popup visible
+            }
+
+            // Hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('popup-box');
+                popup.style.display = 'none'; // Hide the popup
+            }
+
+            // Close the popup when clicking outside of it
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("popup-box");
+                const profileImage = document.querySelector(".profile");
+                const isClickInsidePopup = popup.contains(event.target);
+                const isClickOnProfileImage = profileImage.contains(event.target);
+
+                // Close popup if clicked outside and not on the profile image
+                if (!isClickInsidePopup && !isClickOnProfileImage) {
+                    popup.style.display = "none";
+                }
+            });
+
+            //Popup for the Sign In
+            // Show the sign-in pop-up
+            function showSignInPopup() {
+                document.getElementById('sign-in-popup').style.display = 'block';
+            }
+
+            // Close when clicking outside the pop-up
+            document.addEventListener("click", function (event) {
+                const popup = document.getElementById("sign-in-popup");
+                const signInButton = document.querySelector(".sign-in-link");
+                if (!popup.contains(event.target) && event.target !== signInButton) {
+                    popup.style.display = "none";
+                }
+            });
+
+    </script>
+
+</body>
+</html>
